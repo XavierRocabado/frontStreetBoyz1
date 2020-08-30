@@ -19,9 +19,14 @@ var areaMesa = (mesaX + distanciaMinima / 2) * (mesaY + distanciaMinima / 2);
 var numeroMesa = Math.floor(area / areaMesa);
 var numeroMesasX = Math.floor(distanciaX * numeroMesa / area);
 var numeroMesasY =Math.floor(distanciaY * numeroMesa / area);
-var mesasTotales = numeroMesasX + numeroMesasY;
+var mesasTotales = numeroMesasX *  numeroMesasY;
 
-
+var capacidad = 1;
+if( capacidad < 1){
+    mesasTotales = mesasTotales * capacidad;
+    numeroMesasX = Math.sqrt(mesasTotales);
+    numeroMesasY = Math.sqrt(mesasTotales);
+}
 
 distanciaMinimaCanvasX = distanciaMinima * canvas.width / distanciaX;
 distanciaMinimaCanvasY = distanciaMinima * canvas.height / distanciaY;
@@ -55,5 +60,5 @@ context.fillStyle="#FF0000";
 //Linea Roja que marca sana distancia en X
 //context.fillRect(mesaCanvasX,mesaCanvasY,distanciaMinimaCanvasX,2);
 //Linea Roja que marca sana distancia en Y
-context.fillRect(mesaCanvasX,mesaCanvasY,distanciaMinimaCanvasX,distanciaMinimaCanvasY);
+//context.fillRect(mesaCanvasX,mesaCanvasY,distanciaMinimaCanvasX,distanciaMinimaCanvasY);
 
